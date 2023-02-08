@@ -7,9 +7,6 @@ import (
 )
 
 
-
-
-
 // TestHelloName calls greetings.Hello with a name, checking
 // for a valid return value.
 func Test1(t *testing.T) {
