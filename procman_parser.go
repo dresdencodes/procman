@@ -9,7 +9,6 @@ import (
 func (m *manager) Opts() {
 	if m.once() {return} 
 	m.every()
-	m.blocking()
 }
 
 func (m *manager) once() bool {
@@ -76,13 +75,6 @@ func (m *manager) every() {
 	}
 	
 }
-
-func (m *manager) blocking() {
-	// copy fn -> must be copied 
-	fn := m.fnCopy()
-	if _,ok := m.findOpt("blocking"); !ok { m.fn = func(){ go fn() } }
-}
-
 
 
 func (m *manager) fnCopy() func() {
